@@ -43,27 +43,30 @@ const HomeView = () => {
       <div className='container'>
         <div className='row'>
           {users !== null ? (
-            <>
-              {users.slice(0, usersToShow).map(({ avatar_url, login }) => (
-                <div className='col-sm'>
-                  <Cards
-                    handleLike={handleLike}
-                    profile={profile || []}
-                    avatar_url={avatar_url}
-                    name={login}
-                    searchRepositories={searchRepositories}
-                    repositories={projects}
-                    handleCheckProfile={handleCheckProfile}
-                  />
-                </div>
-              ))}
-
-              {users.length >= usersToShow && (
-                <button onClick={handleMoreUsers} className='btn btn-primary'>
-                  Mostrar más usuarios
-                </button>
-              )}
-            </>
+            users.length === 0 ? (
+              <h1>No se encontraron usuarios :c</h1>
+            ) : (
+              <>
+                {users.slice(0, usersToShow).map(({ avatar_url, login }) => (
+                  <div className='col-sm'>
+                    <Cards
+                      handleLike={handleLike}
+                      profile={profile || []}
+                      avatar_url={avatar_url}
+                      name={login}
+                      searchRepositories={searchRepositories}
+                      repositories={projects}
+                      handleCheckProfile={handleCheckProfile}
+                    />
+                  </div>
+                ))}
+                {users.length >= usersToShow && (
+                  <button onClick={handleMoreUsers} className='btn btn-primary'>
+                    Mostrar más usuarios
+                  </button>
+                )}
+              </>
+            )
           ) : (
             <h1>Busca por usuario y dale Like al repo que más te guste!</h1>
           )}
