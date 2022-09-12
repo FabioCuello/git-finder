@@ -49,7 +49,11 @@ const NavBar = ({ children }) => {
             <ul className='navbar-nav d-flex flex-row me-1'>
               <li className='nav-item me-3 me-lg-0'></li>
               <li className='nav-item me-3 me-lg-0'>
-                <p className='nav-link' onClick={handleLogout}>
+                <p
+                  className='nav-link'
+                  style={{ cursor: 'pointer' }}
+                  onClick={handleLogout}
+                >
                   Logout <i class='fa-solid fa-right-from-bracket'></i>
                 </p>
               </li>
