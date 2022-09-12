@@ -20,6 +20,7 @@ function App() {
             </Route>
             <Route path='/login' element={<LoginView />} />
             <Route path='/register' element={<RegisterView />} />
+            <Route path='*' element={<h1>Route not found :c</h1>} />
           </Routes>
         </ProjectsProvider>
       </ProfileProvider>
