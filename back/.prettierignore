@@ -1,0 +1,15 @@
+# next.js build output
+build
+.docz
+
+## file extensions
+*.*
+!*.css
+!*.js
+!*.json
+!*.jsx
+!*.less
+!*.md
+!*.ts
+!*.tsx
+!*.yml
