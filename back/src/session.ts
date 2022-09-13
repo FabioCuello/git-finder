@@ -1,6 +1,6 @@
 import { RedisClient, ClientOpts } from 'redis';
 import createClient from 'redis/lib/createClient';
-import { REDIS_CONNECTION_STRING, REDIS_SITES_CONNECTION_STRING } from './config';
+import { REDIS_CONNECTION_STRING } from './config';
 import crypto from 'crypto';
 import util from 'util';
 
@@ -40,13 +40,4 @@ customRedisClient.on('error', (error) => {
   console.error('Redis Error : ' + error);
 });
 
-const sitesRedis = new CustomRedis({
-  url: REDIS_SITES_CONNECTION_STRING
-});
-
-sitesRedis.on('error', (error) => {
-  customRedisClient.connected = false;
-  console.error('Redis Error : ' + error);
-});
-
-export { customRedisClient, sitesRedis };
+export { customRedisClient };

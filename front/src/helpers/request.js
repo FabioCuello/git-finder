@@ -1,6 +1,6 @@
 const request = (url, options = {}) => {
   return new Promise(async (resolve, reject) => {
-    const base = 'http://localhost:8080';
+    const base = `http://localhost:8080`;
     const uri = base + url;
     fetch(uri, { credentials: 'include', ...options })
       .then((result) => {
@@ -12,18 +12,18 @@ const request = (url, options = {}) => {
               reject({
                 code: response.code,
                 error: response.error,
-                data: response.data,
+                data: response.data
               });
             else
               reject({
                 code: 'UNKNOWN_RESPONSE',
-                error: 'Unknown response from the server',
+                error: 'Unknown response from the server'
               });
           })
           .catch((error) => {
             reject({
               code: 'INVALID_RESPONSE',
-              error: 'Invalid response from the server',
+              error: 'Invalid response from the server'
             });
           });
       })
@@ -31,7 +31,7 @@ const request = (url, options = {}) => {
         reject({
           code: 'INTERNET_FAILURE',
           error: 'Internet Failure',
-          data: result,
+          data: result
         });
       });
   });
@@ -51,7 +51,7 @@ const customRequest = (url, options = {}) => {
             console.log(error);
             reject({
               code: 'INVALID_RESPONSE',
-              error: 'Invalid response from the server',
+              error: 'Invalid response from the server'
             });
           });
       })
@@ -59,7 +59,7 @@ const customRequest = (url, options = {}) => {
         reject({
           code: 'INTERNET_FAILURE',
           error: 'Internet Failure',
-          data: result,
+          data: result
         });
       });
   });
@@ -74,8 +74,8 @@ const post = (url, data) => {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   });
 };
 
@@ -84,8 +84,8 @@ const remove = (url, data) => {
     method: 'DELETE',
     body: JSON.stringify(data),
     headers: {
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   });
 };
 
@@ -94,8 +94,8 @@ const put = (url, data) => {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   });
 };
 

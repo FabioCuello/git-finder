@@ -1,0 +1,9 @@
+node_modules
+.prettierignore
+.prettierrc.json
+.env
+.env.dev
+create_user.js
+data.sql
+schema.sql
+README.md

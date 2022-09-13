@@ -1,0 +1,16 @@
+CREATE TABLE users (
+  user_id SERIAL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(64) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(user_id)
+);
+
+CREATE TABLE github (
+  github_id SERIAL NOT NULL,
+  external_github_ref VARCHAR(100) NOT NULL,
+  user_id INTEGER NOT NULL,
+  favorites JSONB,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE (external_github_ref, user_id)
+);
